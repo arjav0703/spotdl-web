@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n frontend,backend -c cyan,yellow \"vite\" \"cargo run --manifest-path backend/Cargo.toml\"",
+    "dev:frontend": "vite",
+    "dev:backend": "cargo run --manifest-path backend/Cargo.toml",
     "build": "tsc -b && vite build",
+    "build:backend": "cargo build --release --manifest-path backend/Cargo.toml",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,6 +17,7 @@
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "concurrently": "^9.0.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
