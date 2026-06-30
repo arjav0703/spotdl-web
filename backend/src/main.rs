@@ -9,7 +9,7 @@ use serde_json::{Value, json};
 use std::net::SocketAddr;
 
 #[derive(RustEmbed)]
-#[folder = "../dist/"]
+#[folder = "../build/"]
 struct Assets;
 
 #[tokio::main]
